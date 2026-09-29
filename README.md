@@ -184,8 +184,8 @@ best frame.**
 
 Three failure cases, with diagnosis and proposed fix:
 
-1. **Cardiac-phase-driven selection the pipeline cannot see (case_dev_003,
-   case_dev_004).** In both cases the ground-truth frame's combined score
+### 10.1 Cardiac-phase-driven selection the pipeline cannot see (case_dev_003, case_dev_004) 
+   In both cases the ground-truth frame's combined score
    ranks 9th–10th out of ~17–19 frames — the middle of the pack, not an
    outlier. Case_dev_003's score curve is clearly bimodal, with two peaks
    roughly 10–12 frames apart (consistent with one cardiac cycle at typical
@@ -199,8 +199,8 @@ Three failure cases, with diagnosis and proposed fix:
    cardiac phase before scoring; without ECG, detect periodicity in the
    inter-frame motion signal and prefer local motion minima as a phase proxy.
 
-2. **Frames with strong non-vessel structure (catheter loops, spine,
-   diaphragm edge).** Any of these can locally resemble a vessel ridge to a
+### 10.2 Frames with strong non-vessel structure (catheter loops, spine, diaphragm edge) 
+   Any of these can locally resemble a vessel ridge to a
    Hessian-based filter, especially where they cross or run parallel to a
    real vessel. The illumination-flattening step and the window-shared
    threshold reduce this (static structures don't gain contrast as the
@@ -211,7 +211,8 @@ Three failure cases, with diagnosis and proposed fix:
    variance) from the vesselness map before integrating `load`, similar to
    background subtraction in video analysis.
 
-3. **Windows with only partial vessel-tree filling.** If contrast has not
+### 10.3 Windows with only partial vessel-tree filling 
+   If contrast has not
    yet reached distal branches by the end of the window, every frame scores
    low and the score curve becomes flat and noisy, so small measurement
    noise can shift the selected frame by several positions even though the

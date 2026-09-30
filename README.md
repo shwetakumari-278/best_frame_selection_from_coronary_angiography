@@ -287,3 +287,8 @@ are the two failure cases discussed in Section 10.
 The score plateau (shaded) sits at frames 23–27, and the ground-truth frame
 at 32 sits in the flat trough between two humps — a visual illustration of
 the bimodal, cardiac-cycle-linked pattern described in Section 10.1.
+
+Full per-window visualizations for all ten development cases are available in
+`figures/all_cases/`. The two shown inline above illustrate a typical success
+case and the clearest failure case.
+

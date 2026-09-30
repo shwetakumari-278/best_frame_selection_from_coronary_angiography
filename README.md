@@ -182,6 +182,15 @@ top pick is the ground-truth frame) on the 10 dev cases:
 **Overall: MAE = 2.3 frames, 8/10 (80%) within ±2 frames of the labelled
 best frame.**
 
+**Note on window size.** The assignment brief describes windows of
+approximately 8–11 frames. The ten development windows actually range from
+11 to 33 frames (mean ≈ 20), per the `num_frames` field in `dev_labels.csv`.
+`select_best_frame` does not assume a fixed window length and handles this
+range without modification, but the ±2-frame tolerance is a smaller fraction
+of a 33-frame window than of an 8-frame one, so the reported 80%-within-±2
+figure should be read with that in mind rather than as directly comparable
+across cases of very different window sizes.
+
 Three failure cases, with diagnosis and proposed fix:
 
 ### 10.1 Cardiac-phase-driven selection the pipeline cannot see (case_dev_003, case_dev_004) 
